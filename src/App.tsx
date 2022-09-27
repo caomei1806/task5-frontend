@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.scss'
+import Login from './components/Login'
+import MessageList from './components/MessageList'
+import SendMessageForm from './components/SendMessageForm'
+import Stack from 'react-bootstrap/Stack'
+import UserPanel from './components/UserPanel'
+import { Routes, Route, BrowserRouter as Router } from 'react-router-dom'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<Stack className='App p-5'>
+			<Router>
+				<Routes>
+					<Route path='/' element={<Login />} />
+					<Route path='/user-panel' element={<UserPanel />} />
+				</Routes>
+			</Router>
+		</Stack>
+	)
 }
 
-export default App;
+export default App
