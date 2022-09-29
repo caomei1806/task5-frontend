@@ -1,11 +1,5 @@
 import axios from 'axios'
-import React, {
-	useContext,
-	useState,
-	createContext,
-	useEffect,
-	useCallback,
-} from 'react'
+import React, { useContext, useState, createContext, useEffect } from 'react'
 import { Message } from './models/Message'
 import { User } from './models/User'
 import { URL } from './setup'

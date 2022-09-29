@@ -1,13 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import Table from 'react-bootstrap/Table'
-import { Message } from '../models/Message'
 import { useGlobalContext } from '../context'
-import axios from 'axios'
-import { URL } from '../setup'
 
 const MessageList = () => {
-	const { user, messages, trigger } = useGlobalContext()
-	const [triggering, setTriggering] = useState<Boolean>(false)
+	const { messages } = useGlobalContext()
 	return (
 		<div>
 			<Table striped bordered hover size='sm'>

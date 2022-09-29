@@ -1,11 +1,10 @@
 import axios from 'axios'
-import React, { ChangeEvent, useEffect, useRef, useState } from 'react'
+import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import { useGlobalContext } from '../context'
 import { Message } from '../models/Message'
 import { Typeahead } from 'react-bootstrap-typeahead'
-import { User } from '../models/User'
 import { URL } from '../setup'
 
 const SendMessageForm = () => {
