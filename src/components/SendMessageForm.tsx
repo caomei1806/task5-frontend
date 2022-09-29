@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { ChangeEvent, useEffect, useState } from 'react'
+import React, { ChangeEvent, useEffect, useRef, useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import { useGlobalContext } from '../context'
@@ -11,31 +11,25 @@ const URL = 'http://localhost:5000/api/v1'
 const SendMessageForm = () => {
 	const { user, users } = useGlobalContext()
 	const clearForm: Message = {
+		_id: '',
 		recipient: '',
 		title: '',
 		body: '',
 		user: '',
 	}
 	const [newMessage, setNewMessage] = useState<Message>(clearForm)
-	const [selectedRecipient, setSelectedRecipient] = useState<String[]>([])
 	const sendMessage = async (e: React.SyntheticEvent) => {
 		e.preventDefault()
 		if (newMessage?.recipient && newMessage.title) {
 			await axios
-				.post(`${URL}/user`, {
-					username: newMessage.recipient,
+				.post(`${URL}/messages/${user}`, {
+					recipient: newMessage.recipient,
+					title: newMessage.title,
+					body: newMessage.body,
 				})
-				.then(async (res) => {
-					await axios
-						.post(`${URL}/messages/${user}`, {
-							recipient: res.data.user._id,
-							title: newMessage.title,
-							body: newMessage.body,
-						})
-						.then((created) => {
-							console.log(created)
-							setNewMessage(clearForm)
-						})
+				.then((created) => {
+					console.log(created)
+					setNewMessage(clearForm)
 				})
 		}
 	}
@@ -51,12 +45,8 @@ const SendMessageForm = () => {
 						recipient: e[0],
 					} as Message
 					setNewMessage(message)
-					//setSelectedRecipient([e])
 				}}
 				labelKey='name'
-				// onInputChange={(text: string, e: ChangeEvent<HTMLInputElement>) => {
-				// 	console.log(text, e)
-				// }}
 			/>
 
 			<Form.Group className='mb-3' controlId='title'>

@@ -19,7 +19,7 @@ const Login = () => {
 		const user = await res
 
 		console.log(user.data.user)
-		setUser(user.data.user._id)
+		setUser(user.data.user.name)
 		if (res.status === 200) {
 			const timeout = setTimeout(() => {
 				navigate('/user-panel')
