@@ -6,7 +6,7 @@ import { useGlobalContext } from '../context'
 import { Message } from '../models/Message'
 import { Typeahead } from 'react-bootstrap-typeahead'
 import { User } from '../models/User'
-const URL = 'http://localhost:5000/api/v1'
+import { URL } from '../setup'
 
 const SendMessageForm = () => {
 	const { user, users } = useGlobalContext()

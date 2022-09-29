@@ -8,7 +8,7 @@ import React, {
 } from 'react'
 import { Message } from './models/Message'
 import { User } from './models/User'
-const URL = 'http://localhost:5000/api/v1'
+import { URL } from './setup'
 
 interface AppContextInterface {
 	user: String | undefined

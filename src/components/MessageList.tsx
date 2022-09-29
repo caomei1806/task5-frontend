@@ -3,7 +3,7 @@ import Table from 'react-bootstrap/Table'
 import { Message } from '../models/Message'
 import { useGlobalContext } from '../context'
 import axios from 'axios'
-const URL = 'http://localhost:5000/api/v1'
+import { URL } from '../setup'
 
 const MessageList = () => {
 	const { user, messages, trigger } = useGlobalContext()

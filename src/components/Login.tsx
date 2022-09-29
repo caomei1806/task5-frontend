@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form'
 import { useGlobalContext } from '../context'
 import { useNavigate } from 'react-router-dom'
 
-const URL = 'http://localhost:5000/api/v1'
+import { URL } from '../setup'
 
 const Login = () => {
 	const [username, setUsername] = useState<String>()
